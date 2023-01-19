@@ -22,10 +22,10 @@ class Client2 (threading.Thread):
         s.connect((IP,PORT_S))
         while True :
             print()
-            msg = input("Enter the message you want to send")
+            msg = input("Enter the message you want to send:   ")
             encrytMsg = encrypt(msg, self.pubKey)
             s.send(encrytMsg)
-            print()
+            print("message sent")
 
     def receiving(self): # behaves like a server
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -37,4 +37,4 @@ class Client2 (threading.Thread):
             print("from ",self.sendTo," :",Msg)
             print()
 
-c= Client2("raoua","hadil")
+c= Client2("salma","amira")

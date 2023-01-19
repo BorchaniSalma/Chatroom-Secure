@@ -44,11 +44,11 @@ def gen_ca_cert_key():
     certificate = builder.sign(private_key, hashes.SHA256(), default_backend())
 
     # Write the certificate to disk
-    with open(cons.dest_ca+"ca.crt", "wb") as f:
+    with open("ca.crt", "wb") as f:
         f.write(certificate.public_bytes(serialization.Encoding.PEM))
 
     # Write the private key to disk
-    with open(cons.dest_ca+"ca.key", "wb") as f:
+    with open("ca.key", "wb") as f:
         f.write(private_key.private_bytes(
             encoding=serialization.Encoding.PEM,
             format=serialization.PrivateFormat.TraditionalOpenSSL,
@@ -57,14 +57,14 @@ def gen_ca_cert_key():
 
 def load_ca_cert_key():
     ca = x509.load_pem_x509_certificate(
-        open(cons.dest_ca + 'ca.crt', 'rb').read(), default_backend())
+        open('ca.crt', 'rb').read(), default_backend())
     ca_key = serialization.load_pem_private_key(
-        open(cons.dest_ca + 'ca.key', 'rb').read(), password=None, backend=default_backend())
+        open( 'ca.key', 'rb').read(), password=None, backend=default_backend())
     return ca , ca_key
 
 def create_cert(login):
     # get the request
-    csr = x509.load_pem_x509_csr(open(cons.dest_req+'/'+login+'_req.csr','rb').read(),default_backend())
+    csr = x509.load_pem_x509_csr(open(login+'_req.csr','rb').read(),default_backend())
     # get the CA certificate and key
     ca , ca_key = load_ca_cert_key()
 
@@ -84,7 +84,7 @@ def create_cert(login):
         default_backend()
     )
 
-    with open(cons.dest_client_cert+'/'+login+'.crt','wb') as f:
+    with open(login+'.crt','wb') as f:
         f.write(certificateC.public_bytes(serialization.Encoding.PEM))
 
 def verif_cert(login):
@@ -93,7 +93,7 @@ def verif_cert(login):
 
     msg = ""
     # Load the certificate from a file
-    with open(cons.dest_client_cert +'/'+login+'.crt', 'rb') as f:
+    with open(login+'.crt', 'rb') as f:
         cert = x509.load_pem_x509_certificate(f.read(), default_backend())
 
 

@@ -48,7 +48,7 @@ Window.resizable(width=False,
 Window.configure(width=500,
 							height=400)
 pls = customtkinter.CTkLabel(Window,
-						text="Welcome To SecureChat",
+						text="Your Secrets are SAFE with us!!!!",
 										  font=("Arial",20,"bold"))
 pls.place(relheight=0.15,
 					relx=0.5,
@@ -58,7 +58,7 @@ pls.place(relheight=0.15,
 	### Pseudo ####
 		# create a Label
 Window.labelName = customtkinter.CTkLabel(Window,
-							text="Login : ",
+							text="Username ",
 							   justify=CENTER
 							   )
 
@@ -81,7 +81,7 @@ Window.entryName.focus()
 		### Password ####
 		# create a Label
 Window.labelPwd = customtkinter.CTkLabel(Window,
-							   text="Password : ",
+							   text="Password",
 							   justify=CENTER
 							   )
 
@@ -123,14 +123,14 @@ def connect():
 		# create a Continue Button
 		# along with action
 Window.go = customtkinter.CTkButton(Window,
-						text="CONNECT",
+						text="Sign in",
 						command= connect)
 
 Window.go.place(relx=0.35,
 					rely=0.65)
 
 Window.go = customtkinter.CTkButton(Window,
-										  text="register",
+										  text="Sign up",
 										  command=redirReg)
 
 Window.go.place(relx=0.35,

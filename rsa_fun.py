@@ -5,6 +5,8 @@ import cons
 def getKeys(sender,receiver):
     MyKey = loadMyPrivateKey(sender)
     RKey = loadKeyReceiver(receiver)
+    # print('ffffffffffffffffffffff')
+    # print(RKey)
     return MyKey , RKey
 
 def generateKeys(login):
@@ -16,12 +18,19 @@ def generateKeys(login):
 
 def loadKeyReceiver(login): # receiver's login
     with open(cons.PUB_KEYS+login+'.key', 'rb') as p:
-        publicKey = rsa.PublicKey.load_pkcs1(p.read())
+        # publicKey = rsa.PublicKey.load_pkcs1(p.read(),
+        
+        # 'PEM')
+        publicKey=p.read()
+        # print('123456')
+
     return publicKey
 
 def loadMyPrivateKey(login): # sender's login
+
     with open(cons.PRV_KEYS+login+'.key', 'rb') as p:
-        privateKey = rsa.PrivateKey.load_pkcs1(p.read())
+        # privateKey = rsa.PrivateKey.load_pkcs1(p.read())
+        privateKey=p.read()
     return privateKey
 
 def encrypt(message, key):
@@ -33,6 +42,6 @@ def decrypt(ciphertext, key):
     except:
         return False
 
-# Test :
-#generateKeys("nadine")
-#generateKeys("raoua")
+
+generateKeys("salma")
+generateKeys("amira")

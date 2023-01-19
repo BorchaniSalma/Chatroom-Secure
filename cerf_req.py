@@ -28,10 +28,10 @@ def gen_cert_req(login,firstname):
         private_key, hashes.SHA256(), default_backend()
     )
 
-    with open(cons.dest_req+'/'+login+'_req.csr','wb') as f:
+    with open(login+'_req.csr','wb') as f:
         f.write(request.public_bytes(Encoding.PEM))
 
-    with open(cons.dest_key_cert+'/'+login+'.key','wb') as f:
+    with open(login+'.key','wb') as f:
         f.write(private_key.private_bytes(Encoding.PEM,PrivateFormat.TraditionalOpenSSL,NoEncryption()))
 
 # test :

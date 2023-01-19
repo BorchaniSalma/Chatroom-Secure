@@ -56,6 +56,7 @@ class App(ctk.CTk):
         # will be the one that is visible.
         chatroom.grid(row=0, column=0, sticky="nsew")
         chatroom.tkraise()
+        
 
 
 class Login(tk.Frame):
@@ -89,7 +90,7 @@ class Login(tk.Frame):
 
         # set the focus of the cursor
         entryName.focus()
-
+        print("hello")
         ### Password ####
         # create a Label
         labelPwd = customtkinter.CTkLabel(self,text="Password : ",justify=tk.CENTER)
@@ -117,6 +118,7 @@ class Login(tk.Frame):
 
         def connect():
             msg = ldapserver.login(entryName.get(),entryPwd.get())
+            
             if (msg == "Authentification succeeded"):
                 msgCert = verif_cert(entryName.get())
                 print(msgCert)

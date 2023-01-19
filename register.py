@@ -7,13 +7,13 @@ from cerf_req import *
 import ldapserver
 
 Windowreg = customtkinter.CTk()
-Windowreg.title("Register")
+Windowreg.title("Sign up")
 Windowreg.resizable(width=False,
 				height=False)
 Windowreg.configure(width=500,
 				height=500)
 pls = customtkinter.CTkLabel(Windowreg,
-						text="Create an Account",
+						text="Sign Up and Join Us!!!",
 						font=("Arial",20,"bold"))
 pls.place(relheight=0.15,
 					relx=0.5,
@@ -23,7 +23,7 @@ pls.place(relheight=0.15,
 	### Pseudo ####
 		# create a Label
 Windowreg.labelPseudo = customtkinter.CTkLabel(Windowreg,
-							text="Login : ",
+							text="Username ",
 							   justify=CENTER
 							   )
 
@@ -40,10 +40,30 @@ Windowreg.entryPseudo.place(relwidth=0.4,
 							relx=0.3,
 							rely=0.2)
 
+	### NumCarte ####
+		# create a Label
+Windowreg.labelNumCarte = customtkinter.CTkLabel(Windowreg,
+							text="Student ID ",
+							   justify=CENTER
+							   )
+
+Windowreg.labelNumCarte.place(relheight=0.1,
+							relx=0.1,
+							rely=0.5)
+
+		# create a entry box for
+		# tying the message
+Windowreg.entryNumCarte = customtkinter.CTkEntry(Windowreg)
+
+Windowreg.entryNumCarte.place(relwidth=0.4,
+							relheight=0.08,
+							relx=0.3,
+							rely=0.5)
+
 	### firstName ####
 		# create a Label
 Windowreg.labelFirstName = customtkinter.CTkLabel(Windowreg,
-							text="firstName : ",
+							text="FIrst Name ",
 							   justify=CENTER
 							   )
 
@@ -63,7 +83,7 @@ Windowreg.entryFirstName.place(relwidth=0.4,
 	### lastName ####
 		# create a Label
 Windowreg.labelLastName = customtkinter.CTkLabel(Windowreg,
-							text="lastName : ",
+							text="Last Name",
 							   justify=CENTER
 							   )
 
@@ -80,30 +100,12 @@ Windowreg.entryLastName.place(relwidth=0.4,
 							relx=0.3,
 							rely=0.4)
 
-	### NumCarte ####
-		# create a Label
-Windowreg.labelNumCarte = customtkinter.CTkLabel(Windowreg,
-							text="Card Number : ",
-							   justify=CENTER
-							   )
 
-Windowreg.labelNumCarte.place(relheight=0.1,
-							relx=0.1,
-							rely=0.5)
-
-		# create a entry box for
-		# tying the message
-Windowreg.entryNumCarte = customtkinter.CTkEntry(Windowreg)
-
-Windowreg.entryNumCarte.place(relwidth=0.4,
-							relheight=0.08,
-							relx=0.3,
-							rely=0.5)
 
 		### Password ####
 		# create a Label
 Windowreg.labelPwd = customtkinter.CTkLabel(Windowreg,
-							   text="Password : ",
+							   text="Password ",
 							   justify=CENTER
 							   )
 
@@ -140,7 +142,7 @@ def register():
 	# Generate a certificate request for the CA
 	gen_cert_req(user["username"],user["firstname"])
 	# Certificate creation by the CA :
-	create_cert("/home/hime_chan/PycharmProjects/SecureChat/Certif/Client/requests/guest1_req.csr","guest1")
+	create_cert(user["username"])
 
 
 
@@ -148,14 +150,14 @@ def register():
 		# create a Continue Button
 		# along with action
 Windowreg.go = customtkinter.CTkButton(Windowreg,
-						text="REGISTER",
+						text="Sign Up",
 						command= register)
 
 Windowreg.go.place(relx=0.35,
 					rely=0.75)
 
 Windowreg.go = customtkinter.CTkButton(Windowreg,
-										  text="go back to login",
+										  text="Sign In",
 										  command=redirLog)
 
 Windowreg.go.place(relx=0.35,

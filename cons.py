@@ -10,10 +10,10 @@ dest_ca = "/home/hime_chan/PycharmProjects/SecureChat/Certif/CA/"
 # LDAP
 LDAP_HOST = "ldap://localhost:389"
 ADMIN_PWD = "admin"
-BASE_DN="dc=salma,dc=salma"
-ADMIN_DN = "cn=admin,dc=salma,dc=salma"
-USERS_DN="ou=security,dc=salma,dc=salma"
+BASE_DN="dc=example,dc=com"
+ADMIN_DN = "cn=admin,dc=example,dc=com"
+USERS_DN="ou=security,dc=example,dc=com"
 
 # RSA
-PUB_KEYS = "/home/hime_chan/PycharmProjects/SecureChat/RSA/public_keys/"
-PRV_KEYS = "/home/hime_chan/PycharmProjects/SecureChat/RSA/private_keys/"
+PUB_KEYS = "public_keys/"
+PRV_KEYS = "private_keys/"

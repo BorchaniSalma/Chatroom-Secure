@@ -10,10 +10,14 @@ PORT_R=50036
 class Client1 (threading.Thread):
     def __init__(self , login , sendTo ):
         self.login = login
+        
         self.sendTo = sendTo
         self.myKey , self.pubKey = getKeys(login, sendTo)
+        # print('vgggggg')
+
         x1 = threading.Thread(target=self.sending)
         x2 = threading.Thread(target=self.receiving)
+        
         x1.start()
         x2.start()
 
@@ -22,10 +26,10 @@ class Client1 (threading.Thread):
         s.connect((IP,PORT_S))
         while True :
             print()
-            msg = input("Enter the message you want to send")
+            msg = input("Enter the message you want to send:  ")
             encrytMsg = encrypt(msg, self.pubKey)
             s.send(encrytMsg)
-            print()
+            print("message sent")
 
     def receiving(self): # behaves like a server
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -38,4 +42,4 @@ class Client1 (threading.Thread):
             print()
 
 
-c= Client1("hadil","raoua")
+c= Client1("amira","salma")
