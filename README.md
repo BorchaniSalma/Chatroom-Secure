@@ -22,7 +22,5 @@ LDAP is a protocol for accessing and maintaining distributed directory informati
 RSA encryption is a public-key encryption system that uses a pair of keys, one for encryption and one for decryption. It is widely used for secure data transmission, such as in secure chatrooms. In this chatroom, the RSA encryption would be used to encrypt messages between users to ensure that they can only be read by the intended recipient.
 <img src="https://www.cheapsslshop.com/blog/wp-content/uploads/2019/09/asymmetric-encryption.png"/>
 <img src="https://github.com/Harpia-Vieillot/Harpia-Vieillot/blob/main/resources/hr.gif"/>
-<h1> <img src="https://github.com/Harpia-Vieillot/Harpia-Vieillot/blob/main/resources/dragon.webp" width="70px"> Preview </h1>
-
 
 
